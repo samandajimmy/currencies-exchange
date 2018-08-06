@@ -22,13 +22,23 @@ func GetAllFromTo() (string, error) {
 	return string(res), err
 }
 
-func CreateFromTo(from, to string) {
-	db.Create(&FromTo{From: from, To: to})
+func CreateFromTo(from, to string) string {
+	if db.Create(&FromTo{From: from, To: to}).Error != nil {
+		// Create failed, do something e.g. return, panic etc.
+		return "create failed! please try again later"
+	}
+	return "data has been successfully created!"
 }
 
-func DeleteFromTo(id string) {
+func DeleteFromTo(id string) string {
 	var fromTo FromTo
 
-	db.Where("id = ?", id).Find(&fromTo)
+	err := db.Where("id = ?", id).Find(&fromTo).RecordNotFound()
+
+	if err {
+		return "data not found!"
+	}
+
 	db.Delete(&fromTo)
+	return "data has bean successfully deleted!"
 }

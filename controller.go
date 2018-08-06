@@ -36,14 +36,16 @@ func addCurrency(response http.ResponseWriter, request *http.Request) {
 		panic(err)
 	}
 
-	models.CreateFromTo(params.From, params.To)
+	msg := models.CreateFromTo(params.From, params.To)
+	fmt.Fprintf(response, msg)
 }
 
 func deleteCurrency(response http.ResponseWriter, request *http.Request) {
 	vars := mux.Vars(request)
 	id := vars["id"]
 
-	models.DeleteFromTo(id)
+	msg := models.DeleteFromTo(id)
+	fmt.Fprintf(response, msg)
 }
 
 func addRate(response http.ResponseWriter, request *http.Request) {
@@ -55,7 +57,8 @@ func addRate(response http.ResponseWriter, request *http.Request) {
 		panic(err)
 	}
 
-	models.CreateRate(rate)
+	msg := models.CreateRate(rate)
+	fmt.Fprintf(response, msg)
 }
 
 func showRates(response http.ResponseWriter, request *http.Request) {
