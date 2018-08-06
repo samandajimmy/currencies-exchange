@@ -22,6 +22,8 @@ if you dont have docker:
   - try to access `http//localhost:{port}/ping`
 
 ## Usage
+Here's the database design for this app
+![alt text](https://raw.githubusercontent.com/samandajimmy/currencies-exchange/master/db_design.png)
 
 to use this API please take look on this use cases
   - User wants to input daily exchange rate data
