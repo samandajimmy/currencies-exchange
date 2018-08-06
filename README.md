@@ -25,6 +25,7 @@ if you dont have docker:
 
 to use this API please take look on this use cases
   - User wants to input daily exchange rate data
+    
     try access `/addRate` method `POST` with this request parameter structure
     ```
     {
@@ -34,12 +35,15 @@ to use this API please take look on this use cases
     }```
 
   - User has a list of exchange rates to be tracked
+    
     try access `/rates/{date}` method `GET`
 
   - User wants to see the exchange rate trend from the most recent 7 data points
+    
     try access `/recentRates/{from}/{to}` method `GET`
 
   - User wants to add an exchange rate to the list
+    
     try access `/addCurrency` method `POST` with this request parameter structure
     ```
     {
@@ -48,11 +52,14 @@ to use this API please take look on this use cases
     }```
 
   - User wants to remove an exchange rate from the list
+    
     try access `/deleteCurrency/{id}` method `DELETE`
 
   - User wants to see all all currencies data
+    
     try access `/allCurrencies` method `GET`
 
   - User wants to see all rates data
+    
     try access `/rates` method `GET`
 
